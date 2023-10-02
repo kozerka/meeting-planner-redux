@@ -2,8 +2,34 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CalendarList from './CalendarList';
 import CalendarForm from './CalendarForm';
-import { loadMeetings, sendMeeting } from '../providers/api';
-import { loadMeetingsAction, sendMeetingAction } from '../actions/calendar';
+import {
+	loadMeetings,
+	sendMeeting,
+	deleteMeetingFromApi,
+	updateMeetingFromApi,
+} from '../providers/api';
+import {
+	loadMeetingsAction,
+	sendMeetingAction,
+	updateMeetingAction,
+	deleteMeetingAction,
+} from '../actions/calendar';
+import styled from 'styled-components';
+
+const CalendarWrapper = styled.div`
+	display: flex;
+	flex: 1;
+	gap: 3rem;
+	margin: 0 auto;
+	max-width: 1400px;
+`;
+const FirstChild = styled.div`
+	flex: 1;
+`;
+
+const SecondChild = styled.div`
+	flex: 3;
+`;
 
 const Calendar = () => {
 	const dispatch = useDispatch();
@@ -24,12 +50,39 @@ const Calendar = () => {
 				console.error('Problem with sending meeting', error);
 			});
 	};
+	const updateMeeting = (meetingId, updatedData) => {
+		updateMeetingFromApi(meetingId, updatedData)
+			.then((updatedMeeting) => {
+				dispatch(updateMeetingAction(updatedMeeting));
+			})
+			.catch((error) => {
+				console.error('Problem with updating meeting', error);
+			});
+	};
+
+	const deleteMeeting = (meetingId) => {
+		deleteMeetingFromApi(meetingId)
+			.then(() => {
+				dispatch(deleteMeetingAction(meetingId));
+			})
+			.catch((error) => {
+				console.error('Problem with deleting meeting', error);
+			});
+	};
 
 	return (
-		<section>
-			<CalendarList meetings={meetings} />
-			<CalendarForm saveMeeting={saveMeeting} />
-		</section>
+		<CalendarWrapper>
+			<FirstChild>
+				<CalendarForm saveMeeting={saveMeeting} />
+			</FirstChild>
+			<SecondChild>
+				<CalendarList
+					meetings={meetings}
+					updateMeeting={updateMeeting}
+					deleteMeeting={deleteMeeting}
+				/>
+			</SecondChild>
+		</CalendarWrapper>
 	);
 };
 

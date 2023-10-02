@@ -1,14 +1,15 @@
 {
   "meetings": [
     {
-      "id": 1,
-      "firstName": "Jan",
-      "lastName": "Kowalski",
-      "email": "jan@kowalski.not",
-      "date": "2022-01-01",
-      "time": "10:00"
+      "firstName": "Elżbieta",
+      "lastName": "Kozera",
+      "email": "kozerka@gmail.com",
+      "date": "2022-01-21",
+      "time": "11:00",
+      "id": "2cc4065d-54aa-4d6c-8014-ceb5b23f6e77"
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "firstName": "dsa",
       "lastName": "dsa",
@@ -45,10 +46,25 @@
       "lastName": "Nowak",
       "email": "jan@nowak.pl",
       "date": "2024-01-01",
-      "time": "20:00",
-      "id": "a0fff6cc-dc36-493e-a89b-7b437b3a233c"
+=======
+      "firstName": "Ortovia",
+      "lastName": "Sylwia-Motyl",
+      "email": "kozerka@gmail.com",
+      "date": "2022-01-21",
+      "time": "00:05",
+      "id": "7d308184-fb4d-4fd4-b748-6af0ce88d86d"
     },
     {
+      "firstName": "Elżbieta",
+      "lastName": "Kozera",
+      "email": "kozerka@gmail.com",
+      "date": "2022-01-21",
+>>>>>>> 200d099 (Rebuild ComponentList)
+      "time": "20:00",
+      "id": "8baa6d22-68a5-46c3-b963-da7f491a1445"
+    },
+    {
+<<<<<<< HEAD
       "firstName": "John",
       "lastName": "Doe",
       "email": "john@doe.com",
@@ -56,6 +72,30 @@
       "time": "23:59",
       "id": "b1d305fc-fa24-4cb7-acc8-d36869b87db6"
 >>>>>>> d5ad1f6 (Implement redux, change language to EN)
+=======
+      "firstName": "Elżbieta",
+      "lastName": "Kozera",
+      "email": "kozerka@gmail.com",
+      "date": "2022-01-06",
+      "time": "20:00",
+      "id": "e2f4a00e-4bef-4b68-aa35-65ada63801dc"
+    },
+    {
+      "firstName": "Elżbieta",
+      "lastName": "Kozera",
+      "email": "kozerka@gmail.com",
+      "date": "2022-01-21",
+      "time": "02:00",
+      "id": "a280175f-b0ea-45f4-9daf-39d52e1efbc8"
+    },
+    {
+      "firstName": "Elżbieta",
+      "lastName": "Kozera",
+      "email": "kozerka@gmail.com",
+      "date": "2022-01-05",
+      "time": "20:00",
+      "id": "c88ceff6-5b25-46da-a4c6-a21c3067e0c3"
+>>>>>>> 200d099 (Rebuild ComponentList)
     }
   ]
 }

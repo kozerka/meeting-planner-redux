@@ -5,6 +5,8 @@ import { formFields } from '../helpers/formData';
 import { sendMeetingAction } from '../actions/calendar';
 import { sendMeeting } from '../providers/api';
 import { v4 as uuidv4 } from 'uuid';
+import Button from './ui/Button';
+import Input from './ui/Input';
 
 class CalendarForm extends React.Component {
 	state = {
@@ -29,17 +31,14 @@ class CalendarForm extends React.Component {
 
 	renderFormFields() {
 		return formFields.map((field) => (
-			<div key={field.name}>
-				<label>
-					{field.label}:
-					<input
-						name={field.name}
-						onChange={this.handleFieldChange}
-						value={this.state[field.name]}
-						placeholder={field.placeholder || ''}
-					/>
-				</label>
-			</div>
+			<Input
+				key={field.name}
+				label={field.label}
+				name={field.name}
+				placeholder={field.placeholder}
+				value={this.state[field.name]}
+				onChange={this.handleFieldChange}
+			/>
 		));
 	}
 	handleFieldChange = (e) => {
@@ -94,7 +93,7 @@ class CalendarForm extends React.Component {
 				<ul>{this.renderErrors()}</ul>
 				{this.renderFormFields()}
 				<div>
-					<input type="submit" value="Save meeting" />
+					<Button type="submit">Submit Meeting</Button>
 				</div>
 			</form>
 		);
