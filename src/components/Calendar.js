@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CalendarList from './CalendarList';
 import CalendarForm from './CalendarForm';
+import Modal from './Modal';
 import {
 	loadMeetings,
 	sendMeeting,
@@ -18,17 +19,13 @@ import styled from 'styled-components';
 
 const CalendarWrapper = styled.div`
 	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 	flex: 1;
 	gap: 3rem;
 	margin: 0 auto;
 	max-width: 1400px;
-`;
-const FirstChild = styled.div`
-	flex: 1;
-`;
-
-const SecondChild = styled.div`
-	flex: 3;
 `;
 
 const Calendar = () => {
@@ -72,16 +69,13 @@ const Calendar = () => {
 
 	return (
 		<CalendarWrapper>
-			<FirstChild>
-				<CalendarForm saveMeeting={saveMeeting} />
-			</FirstChild>
-			<SecondChild>
-				<CalendarList
-					meetings={meetings}
-					updateMeeting={updateMeeting}
-					deleteMeeting={deleteMeeting}
-				/>
-			</SecondChild>
+			<Modal />
+
+			<CalendarList
+				meetings={meetings}
+				updateMeeting={updateMeeting}
+				deleteMeeting={deleteMeeting}
+			/>
 		</CalendarWrapper>
 	);
 };

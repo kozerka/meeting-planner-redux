@@ -55,6 +55,9 @@ class CalendarForm extends React.Component {
 		sendMeeting(meetingData)
 			.then((response) => {
 				this.props.sendMeeting(meetingData);
+				 if (this.props.onClose) {
+						this.props.onClose();
+					}
 			})
 			.catch((error) => {
 				console.error('Problem with sending meeting:', error);

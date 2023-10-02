@@ -14,6 +14,7 @@ import DeletingRow from './DeletingRow';
 import EditingRow from './EditingRow';
 import DefaultRow from './DefaultRow';
 import sortData from '../helpers/sortData';
+import NoMeetingsMessage from './NoMeetingsMessage';
 
 class CalendarList extends Component {
 	constructor(props) {
@@ -25,15 +26,15 @@ class CalendarList extends Component {
 			editedMeeting: null,
 			deletingId: null,
 			currentPage: 1,
-			meetingsPerPage: 6,
-			totalPages: Math.ceil(this.props.meetings.length / 6),
+			meetingsPerPage: 10,
+			totalPages: Math.ceil(this.props.meetings.length / 10),
 		};
 	}
 
 	componentDidUpdate(prevProps) {
 		if (prevProps.meetings !== this.props.meetings) {
 			this.setState({
-				totalPages: Math.ceil(this.props.meetings.length / 6),
+				totalPages: Math.ceil(this.props.meetings.length / 10),
 			});
 		}
 	}
@@ -146,6 +147,9 @@ class CalendarList extends Component {
 			(this.state.currentPage - 1) * this.state.meetingsPerPage;
 		const endIndex = startIndex + this.state.meetingsPerPage;
 		const meetingsToShow = sortedMeetings.slice(startIndex, endIndex);
+		if (this.props.meetings.length === 0) {
+			return <NoMeetingsMessage />;
+		}
 
 		return (
 			<div>
@@ -171,6 +175,8 @@ class CalendarList extends Component {
 							currentPage={this.state.currentPage}
 							totalPages={this.state.totalPages}
 							onPageChange={this.changePage}
+							totalMeetings={this.props.meetings.length}
+							meetingsPerPage={this.state.meetingsPerPage}
 						/>
 					</PaginationWrapper>
 				)}
