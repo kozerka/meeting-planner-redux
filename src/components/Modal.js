@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import CalendarForm from './CalendarForm';
+import React from 'react';
 import styled from 'styled-components';
-import ModalPortal from './ModalPortal';
 import { BsXCircleFill } from 'react-icons/bs';
-
-const Wrapper = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
+import ModalPortal from './ModalPortal';
 
 const ModalOverlay = styled.div`
 	position: fixed;
@@ -16,69 +9,48 @@ const ModalOverlay = styled.div`
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
+	background: ${({ theme }) => theme.colors.shadow};
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	z-index: 1000;
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(${({ theme }) => theme.blur.default});
 `;
 
 const ModalContainer = styled.div`
 	position: relative;
-	background-color: white;
-	padding: 2rem;
-	border-radius: 8px;
+	background-color: ${({ theme }) => theme.colors.white};
+	padding: ${({ theme }) => theme.spacing.large};
+	border-radius: ${({ theme }) => theme.borderRadius};
 	max-width: 700px;
 	padding: 5rem;
 	width: 100%;
 `;
 const CloseButton = styled(BsXCircleFill)`
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 1.5rem;
+	right: 1.5rem;
 	cursor: pointer;
-	font-size: 1.5rem;
-	color: #999;
+	font-size: ${({ theme }) => theme.fontSize.large};
+	color: ${({ theme }) => theme.colors.delete};
 
 	&:hover {
-		color: #333;
+		color: ${({ theme }) => theme.colors.confirm};
 	}
 `;
 
-const OpenModalButton = styled.button``;
-
-const Modal = ({ saveMeeting }) => {
-	const [isOpen, setIsOpen] = useState(false);
-
-	const handleOpenModal = () => {
-		setIsOpen(true);
-	};
-
-	const handleCloseModal = () => {
-		setIsOpen(false);
-	};
-
+const Modal = ({ isOpen, onClose, children }) => {
 	return (
-		<Wrapper>
-			<OpenModalButton onClick={handleOpenModal}>
-				Add Meeting to calendar
-			</OpenModalButton>
-
-			{isOpen && (
-				<ModalPortal>
-					<ModalOverlay onClick={handleCloseModal}>
-						<ModalContainer onClick={(e) => e.stopPropagation()}>
-							<CloseButton onClick={handleCloseModal} />
-							<CalendarForm
-								saveMeeting={saveMeeting}
-								onClose={handleCloseModal}
-							/>
-						</ModalContainer>
-					</ModalOverlay>
-				</ModalPortal>
-			)}
-		</Wrapper>
+		isOpen && (
+			<ModalPortal>
+				<ModalOverlay onClick={onClose}>
+					<ModalContainer onClick={(e) => e.stopPropagation()}>
+						<CloseButton onClick={onClose} />
+						{children}
+					</ModalContainer>
+				</ModalOverlay>
+			</ModalPortal>
+		)
 	);
 };
 

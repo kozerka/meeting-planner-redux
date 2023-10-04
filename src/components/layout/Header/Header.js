@@ -6,9 +6,9 @@ const StyledHeader = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 2rem;
 	height: 10%;
-
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-bottom: 3rem;
 	h2 {
 		font-weight: 300;
 		font-size: 3rem;

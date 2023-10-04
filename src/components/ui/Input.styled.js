@@ -5,9 +5,7 @@ const StyledInput = styled.input`
 	font-size: ${({ theme }) => theme.fontSize.medium};
 	color: ${({ theme }) => theme.colors.text};
 	background-color: ${({ theme }) => theme.colors.lightGrey};
-	/* border: ${({ theme }) => theme.border.default}; */
 	border-radius: ${({ theme }) => theme.borderRadius};
-	/* box-shadow: ${({ theme }) => theme.boxShadow.default}; */
 	transition: box-shadow 0.3s ease, border 0.3s ease;
 	width: 100%;
 	border: none;
@@ -17,7 +15,6 @@ const StyledInput = styled.input`
 
 	&:focus {
 		outline: none;
-		/* border: ${({ theme }) => theme.border.focus}; */
 		box-shadow: ${({ theme }) => theme.boxShadow.hover};
 	}
 `;

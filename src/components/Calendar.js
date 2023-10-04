@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CalendarList from './CalendarList';
-import CalendarForm from './CalendarForm';
-import Modal from './Modal';
+import GlassContainer from './ui/GlassContainer.styled';
+import getRandomColor from '../helpers/getRandomColor';
+
 import {
 	loadMeetings,
 	sendMeeting,
@@ -16,6 +17,7 @@ import {
 	deleteMeetingAction,
 } from '../actions/calendar';
 import styled from 'styled-components';
+import ModalForm from './ModalForm';
 
 const CalendarWrapper = styled.div`
 	display: flex;
@@ -39,9 +41,10 @@ const Calendar = () => {
 	}, [dispatch]);
 
 	const saveMeeting = (meetingData) => {
-		sendMeeting(meetingData)
+		const meetingWithColor = { ...meetingData, color: getRandomColor() };
+		sendMeeting(meetingWithColor)
 			.then((response) => {
-				dispatch(sendMeetingAction(meetingData));
+				dispatch(sendMeetingAction(meetingWithColor));
 			})
 			.catch((error) => {
 				console.error('Problem with sending meeting', error);
@@ -69,13 +72,15 @@ const Calendar = () => {
 
 	return (
 		<CalendarWrapper>
-			<Modal />
-
-			<CalendarList
-				meetings={meetings}
-				updateMeeting={updateMeeting}
-				deleteMeeting={deleteMeeting}
-			/>
+			<ModalForm />
+			<GlassContainer>
+				<CalendarList
+					meetings={meetings}
+					saveMeeting={saveMeeting}
+					updateMeeting={updateMeeting}
+					deleteMeeting={deleteMeeting}
+				/>
+			</GlassContainer>
 		</CalendarWrapper>
 	);
 };

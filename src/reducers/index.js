@@ -4,7 +4,7 @@ import {
 	UPDATE_MEETING,
 	DELETE_MEETING,
 } from '../actions/calendar';
-
+import getRandomColor from '../helpers/getRandomColor';
 const initialState = {
 	meetings: [],
 };
@@ -17,10 +17,15 @@ export const reducer = (state = initialState, action) => {
 				meetings: action.payload,
 			};
 		case SAVE_MEETINGS:
+			const newMeeting = {
+				...action.payload,
+				color: action.payload.color ? action.payload.color : getRandomColor(),
+			};
 			return {
 				...state,
-				meetings: [...state.meetings, action.payload],
+				meetings: [...state.meetings, newMeeting],
 			};
+
 		case UPDATE_MEETING:
 			return {
 				...state,

@@ -16,12 +16,14 @@ export const formFields = [
 	{
 		name: 'firstName',
 		label: 'First Name',
+		placeholder: 'First Name',
 		pattern: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]+$/,
 		errorMessage: 'Enter the first name',
 	},
 	{
 		name: 'lastName',
 		label: 'Last Name',
+		placeholder: 'Last Name',
 		pattern: /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]+$/,
 		errorMessage: 'Enter the last name',
 	},

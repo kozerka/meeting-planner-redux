@@ -1,14 +1,25 @@
 {
   "meetings": [
     {
-      "firstName": "Elżbieta",
-      "lastName": "Kozera",
-      "email": "kozerka@gmail.com",
-      "date": "2024-01-01",
-      "time": "20:00",
-      "id": "83a01334-7a01-45cc-8872-902109d91726"
+      "firstName": "Alice",
+      "lastName": "InWonderLand",
+      "email": "alice@mail.com",
+      "date": "2022-01-21",
+      "time": "13:13",
+      "id": "5067ac58-3373-4aad-8d64-94a7b5048cb9",
+      "color": "#E5BA5C"
     },
     {
+      "firstName": "John",
+      "lastName": "Wick",
+      "email": "john@wick.com",
+      "date": "2024-11-12",
+      "time": "20:00",
+      "id": "ea4487d1-4f60-4498-801b-430d4aeb2ef1",
+      "color": "#D8AFCD"
+    },
+    {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -58,16 +69,27 @@
       "date": "2022-01-21",
       "time": "00:07",
       "id": "52fa918f-6c5b-4c17-b1b8-8c29eaed8568"
+=======
+      "firstName": "Dorothy",
+      "lastName": "FromOzz",
+      "email": "ozz@mail.com",
+      "date": "2024-01-21",
+      "time": "11:00",
+      "id": "a339adae-9ce7-462e-afbb-64c8810a2b94",
+      "color": "#5EB169"
+>>>>>>> 66635f4 (Refubrished)
     },
     {
-      "firstName": "Elżbieta",
-      "lastName": "Kozera",
-      "email": "kozerka@gmail.com",
-      "date": "2022-01-21",
-      "time": "00:00",
-      "id": "9d643e41-5f3b-42f9-b8bd-d3549e7bed5a"
+      "firstName": "Son",
+      "lastName": "Goku",
+      "email": "dragon@ball.com",
+      "date": "2023-11-20",
+      "time": "10:00",
+      "id": "1e4065e9-322a-406e-9f0a-28400d3eba7f",
+      "color": "#E58B33"
     },
     {
+<<<<<<< HEAD
       "firstName": "Elżbieta",
       "lastName": "Kozera",
       "email": "kozerka@gmail.com",
@@ -96,16 +118,27 @@
 =======
       "id": "8bd9dda5-f815-4125-8d57-51786b8badf8"
 >>>>>>> b7fbafe (Add modal, modify pagination)
+=======
+      "firstName": "Dead",
+      "lastName": "Pool",
+      "email": "dead@pool.com",
+      "date": "2021-02-03",
+      "time": "13:13",
+      "id": "457091a0-cf14-4093-9108-d30d0c18a3c1",
+      "color": "#4E60A8"
+>>>>>>> 66635f4 (Refubrished)
     },
     {
-      "firstName": "Elżbieta",
-      "lastName": "Kozera",
-      "email": "kozerka@gmail.com",
-      "date": "2022-01-21",
-      "time": "20:00",
-      "id": "275df799-a0bc-4575-b284-229071974cd3"
+      "firstName": "Peter",
+      "lastName": "Pan",
+      "email": "peter@pan.com",
+      "date": "2022-07-22",
+      "time": "09:00",
+      "id": "97ad2903-d7ef-4272-9f2d-45adb378112f",
+      "color": "#70A934"
     },
     {
+<<<<<<< HEAD
       "firstName": "Elżbieta",
       "lastName": "Kozera",
       "email": "kozerka@gmail.com",
@@ -116,16 +149,27 @@
 >>>>>>> 200d099 (Rebuild ComponentList)
 =======
       "id": "3c84601c-bd53-428a-987f-8d03e262c5f2"
+=======
+      "firstName": "Geralt",
+      "lastName": "zRivii",
+      "email": "wither@game.com",
+      "date": "1999-05-13",
+      "time": "08:00",
+      "id": "cce41328-5141-4adb-b5f3-ef746492c5f8",
+      "color": "#7A5699"
+>>>>>>> 66635f4 (Refubrished)
     },
     {
-      "firstName": "Elżbieta",
-      "lastName": "Kozera",
-      "email": "kozerka@gmail.com",
-      "date": "2022-01-21",
-      "time": "20:00",
-      "id": "87e43006-8669-408a-8559-01e647dd7640"
+      "firstName": "Garfielt",
+      "lastName": "TheCat",
+      "email": "cat@mail.com",
+      "date": "2027-09-30",
+      "time": "14:30",
+      "id": "a499f7de-34cc-4f93-a743-71e4b2647960",
+      "color": "#87CF8D"
     },
     {
+<<<<<<< HEAD
       "firstName": "Elżbieta",
       "lastName": "Kozera",
       "email": "kozerka@gmail.com",
@@ -157,6 +201,15 @@
       "time": "20:00",
       "id": "a084b8f8-4031-43e6-b048-4985f97f5031"
 >>>>>>> b7fbafe (Add modal, modify pagination)
+=======
+      "firstName": "Bruce",
+      "lastName": "Wayne",
+      "email": "batman@mail.com",
+      "date": "2023-12-22",
+      "time": "13:45",
+      "id": "2a3e2173-4311-44b1-ad0f-89b66e5b9b0c",
+      "color": "#6DB9C9"
+>>>>>>> 66635f4 (Refubrished)
     }
   ]
 }

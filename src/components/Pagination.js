@@ -24,6 +24,9 @@ function Pagination({
 			<div className="pagination">
 				{pages.map((page) => (
 					<button
+						style={{
+							borderRadius: '6px',
+						}}
 						key={page}
 						className={currentPage === page ? 'active' : ''}
 						onClick={() => onPageChange(page)}
@@ -32,7 +35,7 @@ function Pagination({
 					</button>
 				))}
 			</div>
-			{`Displaying meetings ${currentStart}-${currentEnd} of all ${totalMeetings} available meetings`}
+			{`Displaying  ${currentStart}-${currentEnd} of all ${totalMeetings} available meetings`}
 		</div>
 	);
 }

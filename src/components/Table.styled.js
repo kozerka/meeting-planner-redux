@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 export const Container = styled.div`
 	max-width: 1200px;
+	min-width: 500px;
 	margin: 0 auto;
-	padding: 0 20px;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	border-radius: 10px;
+	border-radius: 1rem;
 	overflow: hidden;
+	background-color: ${({ theme }) => theme.colors.lightGrey};
+	overflow: hidden;
+	a {
+		text-transform: uppercase;
+		text-decoration: none;
+		color: ${({ theme }) => theme.colors.black};
+		align-items: center;
+	}
 `;
 
 export const StyledTable = styled.table`
@@ -19,7 +26,7 @@ export const StyledTable = styled.table`
 
 	th {
 		padding: 10px;
-		background-color: grey;
+		background-color: ${({ theme }) => theme.colors.grayTransparent};
 	}
 
 	th:first-child {
@@ -52,29 +59,13 @@ export const HeaderCell = styled.th`
 	text-transform: capitalize;
 	text-align: center;
 
-	& span.icon-arrow {
-		display: inline-block;
-		width: 1.3rem;
-		height: 1.3rem;
-		border-radius: 50%;
-		border: 1.4px solid transparent;
-		text-align: center;
-		font-size: 1rem;
-		margin-left: 0.5rem;
-		transition: 0.2s ease-in-out;
-
-		&:hover {
-			border: 1.4px solid orange;
-		}
-	}
-
 	&:hover {
-		color: white;
+		color: ${({ theme }) => theme.colors.white};
 	}
 
 	&.active span.icon-arrow {
 		background-color: orange;
-		color: #fff;
+		color: ${({ theme }) => theme.colors.white};
 	}
 
 	&.asc span.icon-arrow {
@@ -96,56 +87,28 @@ export const BodyRow = styled.tr`
 	}
 
 	&:hover {
-		background-color: orange;
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 `;
 export const InitialsCircle = styled.div`
-	width: 36px;
-	height: 36px;
+	width: 46px;
+	height: 46px;
 	border-radius: 50%;
 	background-color: ${(props) => props.backgroundColor || '#000'};
 	color: white;
 	display: flex;
+	padding: 1rem;
 	align-items: center;
 	justify-content: center;
 	font-size: 18px;
 	margin-right: 10px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 `;
 export const BodyCell = styled.td`
 	padding: 1rem;
-	text-align: center;
-	vertical-align: middle;
-	& img {
-		width: 36px;
-		height: 36px;
-		margin-right: 0.5rem;
-		border-radius: 50%;
-		vertical-align: middle;
-	}
+	text-align: left;
 `;
 
-export const StyledInput = styled.input`
-	padding: 0 0.5rem;
-	background-color: transparent;
-`;
 
-export const TableButton = styled.button`
-	margin: 5px;
-	padding: 5px 15px;
-	border: none;
-	border-radius: 4px;
-	background-color: #007bff;
-	color: white;
-	font-size: 1rem;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-
-	&:hover {
-		background-color: #0056b3;
-	}
-
-	&:disabled {
-		background-color: #ccc;
-		cursor: not-allowed;
-	}
-`;

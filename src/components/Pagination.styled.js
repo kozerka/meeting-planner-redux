@@ -3,23 +3,23 @@ import styled from 'styled-components';
 export const PaginationWrapper = styled.div`
 	display: flex;
 	justify-content: center;
-	margin-top: 20px;
+	margin-top: ${({ theme }) => theme.spacing.medium};
 
 	button {
-		padding: 10px;
-		margin: 0 5px;
+		padding: ${({ theme }) => theme.padding.small};
+		margin: 0 ${({ theme }) => theme.spacing.small};
 		border: none;
-		background-color: #f0f0f0;
+		background-color: ${({ theme }) => theme.colors.lightGrey};
 		cursor: pointer;
 		transition: background-color 0.3s;
 
 		&.active {
-			background-color: #333;
-			color: white;
+			background-color: ${({ theme }) => theme.colors.primary};
+			color: ${({ theme }) => theme.colors.white};
 		}
 
 		&:hover {
-			background-color: #ddd;
+			opacity: 0.8;
 		}
 	}
 `;

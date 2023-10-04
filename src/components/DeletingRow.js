@@ -1,20 +1,16 @@
 import React from 'react';
-import {
-	BodyRow,
-	BodyCell,
-	Container,
-	InitialsCircle,
-	TableButton,
-} from './Table.styled';
+import { BodyRow, BodyCell, Container, InitialsCircle } from './Table.styled';
 import getRandomColor from '../helpers/getRandomColor';
 import getMeetingStatus from '../helpers/getMeetingStatus';
+import Button from './ui/Button';
 import { convertDate } from '../helpers/convertDate';
+import FlexContainer from './ui/FlexContainer.styled';
 
 function DeletingRow({ itemData, rowNumber, confirmDelete, cancelDelete }) {
 	const convertedDate = convertDate(itemData.date);
 	const displayDate = `${convertedDate.day} ${convertedDate.month} ${convertedDate.year}`;
 	const initials = `${itemData.firstName[0]}${itemData.lastName[0]}`;
-	const circleColor = getRandomColor();
+	const circleColor = itemData.color;
 
 	return (
 		<BodyRow key={itemData.id}>
@@ -22,21 +18,27 @@ function DeletingRow({ itemData, rowNumber, confirmDelete, cancelDelete }) {
 			<BodyCell>{displayDate}</BodyCell>
 			<BodyCell>{itemData.time}</BodyCell>
 			<BodyCell>
-				<Container>
+				<FlexContainer>
 					<InitialsCircle style={{ backgroundColor: circleColor }}>
 						{initials}
 					</InitialsCircle>
 					<a href={`mailto:${itemData.email}`}>
 						{itemData.firstName} {itemData.lastName}
 					</a>
-				</Container>
+				</FlexContainer>
 			</BodyCell>
 			<BodyCell>{getMeetingStatus(itemData)}</BodyCell>
 			<BodyCell>
-				<TableButton onClick={() => confirmDelete(itemData.id)}>
+				<Button
+					variant="confirm"
+					size="small"
+					onClick={() => confirmDelete(itemData.id)}
+				>
 					Confirm
-				</TableButton>
-				<TableButton onClick={cancelDelete}>Cancel</TableButton>
+				</Button>
+				<Button variant={'cancel'} size="small" onClick={cancelDelete}>
+					Cancel
+				</Button>
 			</BodyCell>
 		</BodyRow>
 	);

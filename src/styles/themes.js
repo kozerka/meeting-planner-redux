@@ -5,11 +5,13 @@ export const theme = {
 		grey: '#C0C7D6',
 		black: '#111111',
 		primary: '#3498db',
-		delete: '#e74c3c',
+		delete: '#fa5252',
 		cancel: '#95a5a6',
 		confirm: '#2ecc71',
-		edit: '#f39c12',
+		edit: '#4dabf7',
 		text: '#202124',
+		shadow: 'rgba(247, 247, 247, 0.048)',
+		grayTransparent: 'rgba(0, 0, 0, 0.48) ',
 	},
 	fontSize: {
 		small: '0.75rem',
@@ -35,10 +37,12 @@ export const theme = {
 	boxShadow: {
 		default: '0px 4px 12px rgba(0, 0, 0, 0.1)',
 		hover: '0px 6px 16px rgba(0, 0, 0, 0.2)',
+		light: '2px 2px 8px rgba(0, 0, 0, 0.5)',
 	},
 	border: {
 		default: '1px solid rgba(0, 0, 0, 0.1)',
 		focus: '1px solid rgba(0, 0, 0, 0.3)',
+		light: '1px solid rgba(255, 255, 255, 0.5)',
 	},
 	spacing: {
 		small: '0.5rem',

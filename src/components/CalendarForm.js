@@ -7,6 +7,14 @@ import { sendMeeting } from '../providers/api';
 import { v4 as uuidv4 } from 'uuid';
 import Button from './ui/Button';
 import Input from './ui/Input';
+import getRandomColor from '../helpers/getRandomColor';
+import styled from 'styled-components';
+
+const ErrorMessage = styled.ul`
+	list-style: none;
+	margin: -1rem 0 0.5rem 1.5rem;
+	color: red;
+`;
 
 class CalendarForm extends React.Component {
 	state = {
@@ -15,7 +23,7 @@ class CalendarForm extends React.Component {
 		email: '',
 		date: '',
 		time: '',
-		errors: [],
+		errors: {},
 	};
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -23,7 +31,7 @@ class CalendarForm extends React.Component {
 		const errors = validateFormData(this.state, formFields);
 		this.setState({ errors });
 
-		if (errors.length === 0) {
+		if (Object.keys(errors).length === 0) {
 			this.saveMeeting();
 			this.clearFormFields();
 		}
@@ -31,20 +39,28 @@ class CalendarForm extends React.Component {
 
 	renderFormFields() {
 		return formFields.map((field) => (
-			<Input
-				key={field.name}
-				label={field.label}
-				name={field.name}
-				placeholder={field.placeholder}
-				value={this.state[field.name]}
-				onChange={this.handleFieldChange}
-			/>
+			<div key={field.name}>
+				<Input
+					label={field.label}
+					name={field.name}
+					placeholder={field.placeholder}
+					value={this.state[field.name]}
+					onChange={this.handleFieldChange}
+				/>
+				{this.state.errors[field.name] && (
+					<ErrorMessage>{this.state.errors[field.name]}</ErrorMessage>
+				)}
+			</div>
 		));
 	}
 	handleFieldChange = (e) => {
 		if (this.isFieldNameCorrect(e.target.name)) {
 			this.setState({
 				[e.target.name]: e.target.value,
+				errors: {
+					...this.state.errors,
+					[e.target.name]: null,
+				},
 			});
 		}
 	};
@@ -52,12 +68,13 @@ class CalendarForm extends React.Component {
 	saveMeeting() {
 		const meetingData = this.getFieldsData();
 		meetingData.id = uuidv4();
+		meetingData.color = getRandomColor();
 		sendMeeting(meetingData)
 			.then((response) => {
 				this.props.sendMeeting(meetingData);
-				 if (this.props.onClose) {
-						this.props.onClose();
-					}
+				if (this.props.onClose) {
+					this.props.onClose();
+				}
 			})
 			.catch((error) => {
 				console.error('Problem with sending meeting:', error);
@@ -93,7 +110,6 @@ class CalendarForm extends React.Component {
 	render() {
 		return (
 			<form action="" onSubmit={this.handleSubmit}>
-				<ul>{this.renderErrors()}</ul>
 				{this.renderFormFields()}
 				<div>
 					<Button type="submit">Submit Meeting</Button>

@@ -26,15 +26,15 @@ class CalendarList extends Component {
 			editedMeeting: null,
 			deletingId: null,
 			currentPage: 1,
-			meetingsPerPage: 10,
-			totalPages: Math.ceil(this.props.meetings.length / 10),
+			meetingsPerPage: 8,
+			totalPages: Math.ceil(this.props.meetings.length / 8),
 		};
 	}
 
 	componentDidUpdate(prevProps) {
 		if (prevProps.meetings !== this.props.meetings) {
 			this.setState({
-				totalPages: Math.ceil(this.props.meetings.length / 10),
+				totalPages: Math.ceil(this.props.meetings.length / 8),
 			});
 		}
 	}

@@ -1,9 +1,9 @@
 const validateFormData = (data, fieldsData) => {
-	const errors = [];
+	const errors = {};
 
 	fieldsData.forEach((field) => {
 		if (field.pattern && !field.pattern.test(data[field.name])) {
-			errors.push(field.errorMessage);
+			errors[field.name] = field.errorMessage;
 		}
 	});
 
