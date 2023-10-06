@@ -54,7 +54,7 @@ export const HeaderCell = styled.th`
 	position: sticky;
 	top: 0;
 	left: 0;
-	background-color: #d5d1defe;
+	background-color: ${({ theme }) => theme.colors.middleGrey};
 	cursor: pointer;
 	text-transform: capitalize;
 	text-align: center;
@@ -87,24 +87,24 @@ export const BodyRow = styled.tr`
 	}
 
 	&:hover {
-		background-color: rgba(0, 0, 0, 0.1);
+		background-color: ${({ theme }) => theme.colors.active};
 	}
 `;
 export const InitialsCircle = styled.div`
-	width: 46px;
-	height: 46px;
+	width: 2.6rem;
+	height: 2.6rem;
 	border-radius: 50%;
 	background-color: ${(props) => props.backgroundColor || '#000'};
-	color: white;
+	color: ${({ theme }) => theme.colors.white};
 	display: flex;
 	padding: 1rem;
 	align-items: center;
 	justify-content: center;
-	font-size: 18px;
+	font-size: ${({ theme }) => theme.fontSize.medium};
 	margin-right: 10px;
 	text-transform: uppercase;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.grayTransparent};
+	box-shadow: ${({ theme }) => theme.boxShadow.light};
 `;
 export const BodyCell = styled.td`
 	padding: 1rem;

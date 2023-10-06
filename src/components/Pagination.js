@@ -1,4 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+`;
 
 function Pagination({
 	currentPage,
@@ -12,15 +21,7 @@ function Pagination({
 	const currentEnd = Math.min(currentPage * meetingsPerPage, totalMeetings);
 
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				flexDirection: 'column',
-				gap: '1rem',
-			}}
-		>
+		<Wrapper>
 			<div className="pagination">
 				{pages.map((page) => (
 					<button
@@ -36,7 +37,7 @@ function Pagination({
 				))}
 			</div>
 			{`Displaying  ${currentStart}-${currentEnd} of all ${totalMeetings} available meetings`}
-		</div>
+		</Wrapper>
 	);
 }
 

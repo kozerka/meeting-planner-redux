@@ -7,18 +7,19 @@ const StyledHeader = styled.header`
 	align-items: center;
 	justify-content: center;
 	height: 10%;
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: ${({ theme }) => theme.colors.whiteTransparent};
 	margin-bottom: 3rem;
 	h2 {
 		font-weight: 300;
-		font-size: 3rem;
+		font-size: ${({ theme }) => theme.fontSize.extraLarge};
 		color: black;
 	}
 `;
 
 const StyleCalendarIcon = styled(BsCalendar2Check)`
 	color: black;
-	font-size: 3rem;
+	font-size: ${({ theme }) => theme.fontSize.extraLarge};
+	margin-right: 1rem;
 `;
 
 const Header = () => {

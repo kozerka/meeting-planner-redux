@@ -16,6 +16,7 @@ import DefaultRow from './DefaultRow';
 import sortData from '../helpers/sortData';
 import NoMeetingsMessage from './NoMeetingsMessage';
 
+
 class CalendarList extends Component {
 	constructor(props) {
 		super(props);

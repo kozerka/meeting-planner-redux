@@ -1,8 +1,6 @@
 import React from 'react';
 import { InitialsCircle, BodyCell, BodyRow } from './Table.styled';
-import getRandomColor from '../helpers/getRandomColor';
 import getMeetingStatus from '../helpers/getMeetingStatus';
-import { convertDate } from '../helpers/convertDate';
 import Button from './ui/Button';
 import FlexContainer from './ui/FlexContainer.styled';
 import Input from './ui/Input';
@@ -15,8 +13,6 @@ function EditingRow({
 	saveChanges,
 	cancelEdit,
 }) {
-	const convertedDate = convertDate(itemData.date);
-	const displayDate = `${convertedDate.day} ${convertedDate.month} ${convertedDate.year}`;
 	const initials = `${itemData.firstName[0]}${itemData.lastName[0]}`;
 	const circleColor = itemData.color;
 

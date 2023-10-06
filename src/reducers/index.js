@@ -17,13 +17,9 @@ export const reducer = (state = initialState, action) => {
 				meetings: action.payload,
 			};
 		case SAVE_MEETINGS:
-			const newMeeting = {
-				...action.payload,
-				color: action.payload.color ? action.payload.color : getRandomColor(),
-			};
 			return {
 				...state,
-				meetings: [...state.meetings, newMeeting],
+				meetings: [...state.meetings, action.payload],
 			};
 
 		case UPDATE_MEETING:

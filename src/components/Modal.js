@@ -22,6 +22,9 @@ const ModalContainer = styled.div`
 	background-color: ${({ theme }) => theme.colors.white};
 	padding: ${({ theme }) => theme.spacing.large};
 	border-radius: ${({ theme }) => theme.borderRadius};
+	box-shadow: ${(props) => props.theme.boxShadow.light};
+	border-top: ${(props) => props.theme.border.light};
+	border-left: ${(props) => props.theme.border.light};
 	max-width: 700px;
 	padding: 5rem;
 	width: 100%;

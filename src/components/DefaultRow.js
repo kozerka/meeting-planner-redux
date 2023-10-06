@@ -1,6 +1,5 @@
 import React from 'react';
-import { BodyRow, BodyCell, InitialsCircle} from './Table.styled';
-import getRandomColor from '../helpers/getRandomColor';
+import { BodyRow, BodyCell, InitialsCircle } from './Table.styled';
 import getMeetingStatus from '../helpers/getMeetingStatus';
 import { convertDate } from '../helpers/convertDate';
 import Button from './ui/Button';
@@ -12,17 +11,6 @@ const Envelope = styled(BsEnvelopeAt)`
 	font-size: 1.2rem;
 	vertical-align: middle;
 	margin: 0.3rem;
-`;
-const CollorWrapper = styled.div`
-	color: ${(props) => props.color};
-	text-align: center;
-
-	border-radius: 2rem;
-	margin: 0.5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0.5rem;
 `;
 
 function DefaultRow({ itemData, rowNumber, handleEdit, handleDelete }) {

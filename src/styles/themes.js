@@ -1,7 +1,9 @@
 export const theme = {
 	colors: {
 		white: '#FFFFFF',
+		active: 'rgba(78, 96, 168, 0.2)',
 		lightGrey: '#F7F8FA',
+		middleGrey: '#d5d1defe',
 		grey: '#C0C7D6',
 		black: '#111111',
 		primary: '#3498db',
@@ -12,11 +14,13 @@ export const theme = {
 		text: '#202124',
 		shadow: 'rgba(247, 247, 247, 0.048)',
 		grayTransparent: 'rgba(0, 0, 0, 0.48) ',
+		whiteTransparent: 'rgba(255, 255, 255, 0.8)',
 	},
 	fontSize: {
 		small: '0.75rem',
 		medium: '1rem',
 		large: '2rem',
+		extraLarge: '3rem',
 	},
 	padding: {
 		small: '0.5rem 1rem',

@@ -12,8 +12,9 @@ import styled from 'styled-components';
 
 const ErrorMessage = styled.ul`
 	list-style: none;
-	margin: -1rem 0 0.5rem 1.5rem;
-	color: red;
+	margin: -0.5rem 0 0.5rem 1.5rem;
+	color: ${({ theme }) => theme.colors.delete};
+	font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
 class CalendarForm extends React.Component {
@@ -82,29 +83,21 @@ class CalendarForm extends React.Component {
 	}
 
 	clearFormFields() {
-		const fieldsData = this.getFieldsData();
-		for (const prop in fieldsData) {
-			fieldsData[prop] = '';
+		const updatedState = { ...this.state };
+		for (const field of formFields) {
+			updatedState[field.name] = '';
 		}
-
-		this.setState(fieldsData);
+		this.setState(updatedState);
 	}
 
 	getFieldsData() {
-		const fieldsData = Object.assign({}, this.state);
-		delete fieldsData['errors'];
-
+		const { errors, ...fieldsData } = this.state;
 		return fieldsData;
 	}
 
 	isFieldNameCorrect(name) {
 		const fieldsData = this.getFieldsData();
-
 		return typeof fieldsData[name] !== 'undefined';
-	}
-
-	renderErrors() {
-		return this.state.errors.map((err, index) => <li key={index}>{err}</li>);
 	}
 
 	render() {
