@@ -9,7 +9,7 @@ export const PaginationWrapper = styled.div`
 		padding: ${({ theme }) => theme.padding.small};
 		margin: 0 ${({ theme }) => theme.spacing.small};
 		border: none;
-		background-color: ${({ theme }) => theme.colors.lightGrey};
+		background-color: ${({ theme }) => theme.colors.lightGray};
 		cursor: pointer;
 		transition: background-color 0.3s;
 

@@ -7,7 +7,7 @@ export const Container = styled.div`
 	align-items: center;
 	border-radius: 1rem;
 	overflow: hidden;
-	background-color: ${({ theme }) => theme.colors.lightGrey};
+	background-color: ${({ theme }) => theme.colors.lightGray};
 	overflow: hidden;
 	a {
 		text-transform: uppercase;
@@ -54,7 +54,7 @@ export const HeaderCell = styled.th`
 	position: sticky;
 	top: 0;
 	left: 0;
-	background-color: ${({ theme }) => theme.colors.middleGrey};
+	background-color: ${({ theme }) => theme.colors.middleGray};
 	cursor: pointer;
 	text-transform: capitalize;
 	text-align: center;

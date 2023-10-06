@@ -4,7 +4,7 @@ const StyledInput = styled.input`
 	padding: ${({ theme }) => theme.padding.medium};
 	font-size: ${({ theme }) => theme.fontSize.medium};
 	color: ${({ theme }) => theme.colors.text};
-	background-color: ${({ theme }) => theme.colors.lightGrey};
+	background-color: ${({ theme }) => theme.colors.lightGray};
 	border-radius: ${({ theme }) => theme.borderRadius};
 	transition: box-shadow 0.3s ease, border 0.3s ease;
 	width: 100%;

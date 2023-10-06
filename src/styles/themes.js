@@ -2,9 +2,9 @@ export const theme = {
 	colors: {
 		white: '#FFFFFF',
 		active: 'rgba(78, 96, 168, 0.2)',
-		lightGrey: '#F7F8FA',
-		middleGrey: '#d5d1defe',
-		grey: '#C0C7D6',
+		lightGray: '#F7F8FA',
+		middleGray: '#d5d1defe',
+		gray: '#C0C7D6',
 		black: '#111111',
 		primary: '#3498db',
 		delete: '#fa5252',
