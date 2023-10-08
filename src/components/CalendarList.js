@@ -29,6 +29,7 @@ class CalendarList extends Component {
 			currentPage: 1,
 			meetingsPerPage: 8,
 			totalPages: Math.ceil(this.props.meetings.length / 8),
+			isSorted: false,
 		};
 	}
 
@@ -46,6 +47,7 @@ class CalendarList extends Component {
 				? 'desc'
 				: 'asc';
 		this.setState({
+			isSorted: true,
 			sortBy: column,
 			sortDirection: direction,
 		});
@@ -138,16 +140,19 @@ class CalendarList extends Component {
 	};
 
 	render() {
-		const sortedMeetings = sortData(
-			this.props.meetings,
-			this.state.sortBy,
-			this.state.sortDirection
-		);
+		const meetingsData = this.state.isSorted
+			? sortData(
+					this.props.meetings,
+					this.state.sortBy,
+					this.state.sortDirection
+			  )
+			: this.props.meetings;
+	
 
 		const startIndex =
 			(this.state.currentPage - 1) * this.state.meetingsPerPage;
 		const endIndex = startIndex + this.state.meetingsPerPage;
-		const meetingsToShow = sortedMeetings.slice(startIndex, endIndex);
+		const meetingsToShow = meetingsData.slice(startIndex, endIndex);
 		if (this.props.meetings.length === 0) {
 			return <NoMeetingsMessage />;
 		}
