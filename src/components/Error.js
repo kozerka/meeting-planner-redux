@@ -11,12 +11,16 @@ const StyledP = styled.p`
 	margin-top: 2rem;
 	font-size: ${({ theme }) => theme.fontSize.medium};
 	color: ${({ theme }) => theme.colors.text};
+	text-align: center;
 `;
 const Error = () => {
 	return (
 		<ErrorWrapper>
 			<BiSolidErrorAlt size="4rem" color="#fff" />
-			<StyledP>Something went wrong while fetching data...</StyledP>
+			<StyledP>
+				Something went wrong while fetching data... <br /> No connection to the
+				database
+			</StyledP>
 		</ErrorWrapper>
 	);
 };

@@ -18,6 +18,10 @@ MeetingPlanner is a appointment scheduling application. Through its intuitive an
 
 - **Easy Data Input**: Quickly capture crucial meeting details such as date, time, first name, last name, and email through a user-friendly form.
 - **Data Storage**: All meetings are stored in a `.json` file, making data retrieval effortless even when offline.
+- **Error messages based on the API connection status**: There are three types of messages:
+  - **Database Disconnected**: Displayed when there's no database connection, preventing the addition of new meetings.
+  - **Error Message**: Shown if there's an issue while fetching data from the API.
+  - **Loading Message**: Displayed during data retrieval to indicate ongoing activity.
 - **Modular Components**: The app’s architecture revolves around component-based designs. This not only ensures seamless updates in the future but also provides an efficient data flow through `state` and `props`.
 - **Validation**: Every input is rigorously validated, ensuring the consistency and accuracy of the data.
 - **Sorting Features**: Organize your meetings efficiently! Now sort columns by date, time, status, and name.
