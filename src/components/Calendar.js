@@ -85,7 +85,7 @@ const Calendar = () => {
 
 	return (
 		<CalendarWrapper>
-			<ModalForm />
+			<ModalForm isLoading={isLoading} error={error} />
 			<GlassContainer>
 				{isLoading ? (
 					<Loader />

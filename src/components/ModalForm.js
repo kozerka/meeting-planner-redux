@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import Modal from './Modal';
 import CalendarForm from './CalendarForm';
 import Button from './ui/Button';
+import Error from './Error';
+import DbDisconected from './DbDisconected';
 
-const ModalForm = ({ saveMeeting }) => {
+const ModalForm = ({ saveMeeting, isLoading, error }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleOpenModal = () => {
@@ -23,7 +25,11 @@ const ModalForm = ({ saveMeeting }) => {
 			</Button>
 
 			<Modal isOpen={isOpen} onClose={handleCloseModal}>
-				<CalendarForm saveMeeting={saveMeeting} onClose={handleCloseModal} />
+				{!isLoading && !error ? (
+					<CalendarForm saveMeeting={saveMeeting} onClose={handleCloseModal} />
+				) : (
+					<DbDisconected />
+				)}
 			</Modal>
 		</div>
 	);
