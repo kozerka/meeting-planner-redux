@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import CalendarList from './CalendarList';
 import GlassContainer from './ui/GlassContainer.styled';
 import getRandomColor from '../helpers/getRandomColor';
+import Loader from './Loader';
+import Error from './Error';
 
 import {
 	loadMeetings,
@@ -15,6 +17,8 @@ import {
 	sendMeetingAction,
 	updateMeetingAction,
 	deleteMeetingAction,
+	setLoadingAction,
+	setErrorAction,
 } from '../actions/calendar';
 import styled from 'styled-components';
 import ModalForm from './ModalForm';
@@ -33,11 +37,20 @@ const CalendarWrapper = styled.div`
 const Calendar = () => {
 	const dispatch = useDispatch();
 	const meetings = useSelector((state) => state.meetings);
+	const isLoading = useSelector((state) => state.isLoading);
+	const error = useSelector((state) => state.error);
 
 	useEffect(() => {
+		dispatch(setLoadingAction(true));
 		loadMeetings()
-			.then((meetingsFromApi) => dispatch(loadMeetingsAction(meetingsFromApi)))
-			.catch((error) => console.error('Can not load meetings:', error));
+			.then((meetingsFromApi) => {
+				dispatch(setLoadingAction(false));
+				dispatch(loadMeetingsAction(meetingsFromApi));
+			})
+			.catch((error) => {
+				dispatch(setLoadingAction(false));
+				dispatch(setErrorAction(' while fetching data', error));
+			});
 	}, [dispatch]);
 
 	const saveMeeting = (meetingData) => {
@@ -74,12 +87,18 @@ const Calendar = () => {
 		<CalendarWrapper>
 			<ModalForm />
 			<GlassContainer>
-				<CalendarList
-					meetings={meetings}
-					saveMeeting={saveMeeting}
-					updateMeeting={updateMeeting}
-					deleteMeeting={deleteMeeting}
-				/>
+				{isLoading ? (
+					<Loader />
+				) : error ? (
+					<Error />
+				) : (
+					<CalendarList
+						meetings={meetings}
+						saveMeeting={saveMeeting}
+						updateMeeting={updateMeeting}
+						deleteMeeting={deleteMeeting}
+					/>
+				)}
 			</GlassContainer>
 		</CalendarWrapper>
 	);

@@ -3,10 +3,14 @@ import {
 	SAVE_MEETINGS,
 	UPDATE_MEETING,
 	DELETE_MEETING,
+	SET_LOADING,
+	SET_ERROR,
 } from '../actions/calendar';
 import getRandomColor from '../helpers/getRandomColor';
 const initialState = {
 	meetings: [],
+	isLoading: false,
+	error: null,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -35,6 +39,16 @@ export const reducer = (state = initialState, action) => {
 				meetings: state.meetings.filter(
 					(meeting) => meeting.id !== action.payload
 				),
+			};
+		case SET_LOADING:
+			return {
+				...state,
+				isLoading: action.payload,
+			};
+		case SET_ERROR:
+			return {
+				...state,
+				error: action.payload,
 			};
 		default:
 			return state;
